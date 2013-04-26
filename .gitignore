@@ -1,0 +1,4 @@
+*.suo
+*.user
+LibraryWatcher/bin/
+LibraryWatcher/obj/

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LibraryWatcher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LIBRARY_NAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Television</Value>
+    </Setting>
+    <Setting Name="DEST_FILE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Backups\show_names.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
