@@ -39,3 +39,13 @@ EXAMPLES
    E:\More\TV\                          |
 	    Homeland\                         |
 			video.mp4                         |
+			
+COPYRIGHT
+   Copyright (c) 2013, Sam Malone. All rights reserved.
+
+LICENSING
+   The tv source code, binaries and man page are licensed under a BSD License.
+   See LICENSE for details.
+
+AUTHOR
+   Sam Malone
