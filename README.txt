@@ -10,7 +10,15 @@ DESCRIPTION
 	 Library in order to keep track of each folders subdirectories. These
 	 subdirectories will be written to the DEST file on start up. When a change
 	 event (new folder, delete folder, rename folder) occurs, the changes will be
-	 written to DEST. 
+	 written to DEST.
+	 
+	 The program can run as a console program or as a Windows Service. The Windows
+	 Service will monitor folder changes as described above. When run as a console
+	 application, the program will not continually monitor the library. It will 
+   write the contents of the library to the destination file and then exit.
+
+   When running as a console program, if LIBRARY_NAME or DEST is not specified,
+   the configuration file values will be read instead.
 
 OPTIONS
    The LIBRARY_NAME option is the Windows Library Name e.g. Videos, TV
@@ -27,6 +35,18 @@ FILES
          This is the user configuration file used to set the Library Name and
 				 destination file.
 			
+CONFIG
+   The configuration file is required for use as a Windows Service. It is
+   optional when running the program as a console application.
+
+   Editing the config file (LibraryWatcher.exe.config) requires	replacing the
+	 <value /> XML element with your value for the Library Name and Destination
+	 file. The example excerpt below shows how to set the Library Name:
+	 
+      <setting name="LIBRARY_NAME" serializeAs="String">
+			   <value>Television</value>
+			</setting>
+
 EXAMPLES
    LibraryWatcher.exe Television --dest D:\Backup\ShowList.txt
 	 

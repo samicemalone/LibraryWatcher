@@ -1,0 +1,36 @@
+===============================================================================
+ LibraryWatcher INSTALLATION NOTES
+===============================================================================
+
+This file describes the installation of LibraryWatcher on your machine.
+
+===============================================================================
+ Install as Windows Service
+===============================================================================
+
+To install LibraryWatcher as a Windows Service,
+
+sc create %name% binpath= "\"%binpath%\"" start= "auto" DisplayName= "LibraryWatcherService"
+
+Where:
+
+%name% -- name of service instance, e.g. LibraryWatcherService
+%binpath% -- path to this project exe file, e.g. C:\Program Files\LibraryWatcher\LibraryWatcher.exe
+
+Windows Libraries may only visible to a single user, so you may have to run the service under
+your own user account. To create the service for the following user "Ice" with password "pass123":
+
+sc create %name% binpath= "\"%binpath%\"" start= "auto" DisplayName= "LibraryWatcherService" obj= .\Ice password= pass123
+
+To understand more of these properties, like start and DisplayName, read article How to create  
+a Windows Service by using sc.exe at http://support.microsoft.com/kb/251192.
+
+===============================================================================
+ Uninstall Windows Service
+===============================================================================
+
+To uninstall the service, simply execute:
+
+sc delete %name%
+
+Where %name% -- name of already installed service instance. e.g. LibraryWatcherService
