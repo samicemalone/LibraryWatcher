@@ -64,8 +64,8 @@ COPYRIGHT
    Copyright (c) 2013, Sam Malone. All rights reserved.
 
 LICENSING
-   The tv source code, binaries and man page are licensed under a BSD License.
-   See LICENSE for details.
+   The LibraryWatcher source code, binaries and documentation are licensed under a
+   BSD License. See LICENSE for details.
 
 AUTHOR
    Sam Malone
