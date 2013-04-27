@@ -73,6 +73,34 @@ namespace LibraryWatcher {
         }
 
         /// <summary>
+        /// Attempts to validate the given arguments object. The app config settings will be 
+        /// used as default values (and validated) if the program arguments haven't been set 
+        /// </summary>
+        /// <param name="args">Parsed Arguments</param>
+        /// <returns>Same arguments object</returns>
+        public static Args validate(Args args) {
+            if (args.Library == null) {
+                if (Config.isValidSettingValue("LIBRARY_NAME")) {
+                    string name = Properties.Settings.Default.LIBRARY_NAME;
+                    args.Library = new Library(name, LibraryManager.getLibraryFolders(name));
+                } else {
+                    throw new Exception("The library name was not specified as an argument or in the config file");
+                }
+            }
+            if (!args.Library.isValid()) {
+                throw new Exception("Unable to find library, or the library is empty");
+            }
+            if (args.Destination == null) {
+                if (Config.isValidSettingValue("DEST_FILE")) {
+                    args.Destination = Properties.Settings.Default.DEST_FILE;
+                } else {
+                    throw new Exception("Destination file is not set");
+                }
+            }
+            return args;
+        }
+
+        /// <summary>
         /// Get the help/usage message
         /// </summary>
         /// <returns>Help/Usage message</returns>

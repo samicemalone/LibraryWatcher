@@ -25,7 +25,7 @@ namespace LibraryWatcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Television")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LIBRARY_NAME {
             get {
                 return ((string)(this["LIBRARY_NAME"]));
@@ -37,7 +37,7 @@ namespace LibraryWatcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Backups\\show_names.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DEST_FILE {
             get {
                 return ((string)(this["DEST_FILE"]));

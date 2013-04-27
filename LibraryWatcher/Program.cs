@@ -61,26 +61,11 @@ namespace LibraryWatcher {
                 Console.WriteLine(Args.getHelpMessage());
                 Environment.Exit(0);
             }
-            if (arguments.Library == null) {
-                if (isSettingSet("LIBRARY_NAME")) {
-                    string name = Properties.Settings.Default.LIBRARY_NAME;
-                    arguments.Library = new Library(name, LibraryManager.getLibraryFolders(name));
-                } else {
-                    Console.WriteLine(Args.getHelpMessage());
-                    Environment.Exit(0);
-                }
-            }
-            if (!arguments.Library.isValid()) {
-                Console.WriteLine("Unable to find library, or the library is empty");
+            try {
+                Args.validate(arguments);
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
                 Environment.Exit(1);
-            }
-            if (arguments.Destination == null) {
-                if (isSettingSet("DEST_FILE")) {
-                    arguments.Destination = Properties.Settings.Default.DEST_FILE;
-                } else {
-                    Console.WriteLine("Destination file is not set");
-                    Environment.Exit(1);
-                }
             }
             LibraryFile db = new LibraryFile(arguments.Library, arguments.Destination);
             db.init();
@@ -91,18 +76,5 @@ namespace LibraryWatcher {
             Environment.Exit(0);
         }
 
-        /// <summary>
-        /// Checks if the setting with the given key exists in the configuration file
-        /// </summary>
-        /// <param name="key">Setting Key</param>
-        /// <returns>true if key is set, false otherwise</returns>
-        static bool isSettingSet(string key) {
-            foreach (SettingsProperty curProperty in Properties.Settings.Default.Properties) {
-                if(curProperty.Name.Equals(key)) {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }
