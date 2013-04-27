@@ -86,7 +86,7 @@ namespace LibraryWatcher {
             db.init();
             LibraryWatcher watcher = new LibraryWatcher(arguments.Library, db);
             watcher.watch();
-            Console.WriteLine("Written " + arguments.Library + " library contents to " + arguments.Destination);
+            Console.WriteLine("Written " + arguments.Library.Name + " library contents to " + arguments.Destination);
             watcher.close();
             Environment.Exit(0);
         }
