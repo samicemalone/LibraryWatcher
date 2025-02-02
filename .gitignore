@@ -1,4 +1,6 @@
 *.suo
 *.user
+.vs/
 LibraryWatcher/bin/
 LibraryWatcher/obj/
+packages/

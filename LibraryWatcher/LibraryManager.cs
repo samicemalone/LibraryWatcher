@@ -53,7 +53,7 @@ namespace LibraryWatcher {
                     }
                 }
             } catch (Exception) {
-            
+                
             }
             return folders;
         }
