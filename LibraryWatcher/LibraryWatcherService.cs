@@ -46,12 +46,10 @@ namespace LibraryWatcher {
             InitializeComponent();
             if (!Config.isValidSettingValue("LIBRARY_NAME")) {
                 string message = "The library name is not set in the configuration file";
-                eventLog.WriteEntry(message, EventLogEntryType.Error);
                 throw new Exception(message);
             }
             if (!Config.isValidSettingValue("DEST_FILE")) {
                 string message = "The destination file is not set in the configuration file";
-                eventLog.WriteEntry(message, EventLogEntryType.Error);
                 throw new Exception(message);
             }
             string name = Properties.Settings.Default.LIBRARY_NAME;
@@ -59,7 +57,6 @@ namespace LibraryWatcher {
             Library library = new Library(name, LibraryManager.getLibraryFolders(name));
             if (!library.isValid()) {
                 string message = "Could not load the library: " + library.Name;
-                eventLog.WriteEntry(message, EventLogEntryType.Error);
                 throw new Exception(message);
             }
             LibraryFile db = new LibraryFile(library, destinationFile);

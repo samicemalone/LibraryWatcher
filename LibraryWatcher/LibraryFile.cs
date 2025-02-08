@@ -76,7 +76,7 @@ namespace LibraryWatcher {
             using (FileStream stream = new FileStream(FILE, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None)) {
                 using (StreamWriter writer = new StreamWriter(stream)) {
                     foreach (string show in contents.getLibraryContents()) {
-                        writer.WriteLine(show);
+                        writer.Write(show + "\n");
                     }
                 }
             }
